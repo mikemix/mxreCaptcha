@@ -1,0 +1,9 @@
+<?php return [
+    'mxreCaptcha' => [
+        // PUT YOUR PUBLIC KEY HERE
+        'sitekey'   => '',
+        
+        // PUT YOUR PRIVATE KEY HERE
+        'secretkey' => '',
+    ],
+];
