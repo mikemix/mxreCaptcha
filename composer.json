@@ -2,8 +2,11 @@
   "name": "mikemix/mxrecaptcha",
   "description": "ZF2 Form integration with v2.0 reCaptcha",
   "require": {
-    "zendframework/zend-mvc": "~2.0",
     "php": ">=5.5"
+  },
+  "require-dev": {
+    "zendframework/zend-mvc": "~2.0",
+    "zendframework/zend-view": "~2.0"
   },
   "keywords": [
     "zend framework",
@@ -24,6 +27,6 @@
     }
   },
   "suggests": {
-    "mikemix/mxdi-module": "To configure dependency injection in Zend Framework 2 using annotations"
+    "mikemix/mxdi-module": "To configure dependency injection in Zend Framework 2 using annotations/yml/xml"
   }
 }
