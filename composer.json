@@ -1,0 +1,29 @@
+{
+  "name": "mikemix/mxreCaptcha",
+  "description": "ZF2 Form integration with v2.0 reCaptcha",
+  "require": {
+    "zendframework/zend-mvc": "~2.0",
+    "php": ">=5.5"
+  },
+  "keywords": [
+    "zend framework",
+    "zf2",
+	"zf2 form"
+    "reCaptcha"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michal Zukowski",
+      "homepage": "https://www.phpcontext.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "mxreCaptcha\\": "src/"
+    }
+  },
+  "suggests": {
+    "mikemix/mxdi-module": "To configure dependency injection in Zend Framework 2 using annotations"
+  }
+}
