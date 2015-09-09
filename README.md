@@ -85,3 +85,12 @@ $form = $this->form->prepare();
 
 <?= $this->form()->closeTag() ?>
 ```
+
+## Unit tests
+
+This modules comes up with unit tests. phpUnit is required to run the suite:
+
+1. Navigate to the library directory
+2. Download composer `php -r "readfile('https://getcomposer.org/installer');" | php`
+3. Install dependencies `php composer.phar update`
+4. Run suite `phpunit`
