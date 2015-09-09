@@ -1,5 +1,5 @@
 {
-  "name": "mikemix/mxreCaptcha",
+  "name": "mikemix/mxrecaptcha",
   "description": "ZF2 Form integration with v2.0 reCaptcha",
   "require": {
     "zendframework/zend-mvc": "~2.0",
