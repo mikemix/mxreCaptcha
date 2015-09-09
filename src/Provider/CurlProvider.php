@@ -3,13 +3,13 @@ namespace mxreCaptcha\Provider;
 
 class CurlProvider implements ProviderInterface
 {
-	const URL = 'https://www.google.com/recaptcha/api/siteverify';
-	
-	public function __construct($url = self::URL)
-	{
-		$this->url = $url;
-	}
-	
+    const URL = 'https://www.google.com/recaptcha/api/siteverify';
+
+    public function __construct($url = self::URL)
+    {
+        $this->url = $url;
+    }
+
     public function isResponseValid($secret, $response, $ip)
     {
         $ch = curl_init($this->url);
