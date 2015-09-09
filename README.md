@@ -69,7 +69,7 @@ class FormController extends AbstractActionController
 
 Example view
 
-```
+```php
 <?php
 /** @var App\Form\AddForm $form */
 $form = $this->form->prepare();
