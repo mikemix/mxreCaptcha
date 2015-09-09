@@ -8,7 +8,9 @@ use Zend\Validator\Exception;
 
 class ReCaptcha extends AbstractValidator
 {
-    const FIELD_NAME = 'g-recaptcha-response';
+    const FIELD_NAME  = 'g-recaptcha-response';
+    const ERR_EMPTY   = 'errEmpty';
+    const ERR_INVALID = 'errInvalid';
 
     /** @var string */
     protected $privateKey;
@@ -19,6 +21,11 @@ class ReCaptcha extends AbstractValidator
     /** @var ProviderInterface */
     protected $provider;
 
+    protected $messageTemplates = [
+        self::ERR_EMPTY   => 'reCaptcha response is empty',
+        self::ERR_INVALID => 'reCaptcha response is not valid',
+    ];
+
     /**
      * @param array|null|\Traversable $privateKey
      * @param array $postValues
@@ -27,6 +34,8 @@ class ReCaptcha extends AbstractValidator
     {
         $this->privateKey = $privateKey;
         $this->postValues = $postValues;
+
+        parent::__construct();
     }
 
     /**
@@ -63,9 +72,15 @@ class ReCaptcha extends AbstractValidator
     public function isValid($value)
     {
         if (!isset($this->postValues[self::FIELD_NAME]) || empty($response = $this->postValues[self::FIELD_NAME])) {
+            $this->error(self::ERR_EMPTY);
             return false;
         }
 
-        return $this->getProvider()->isResponseValid($this->privateKey, $response, $_SERVER['REMOTE_ADDR']);
+        if (!$this->getProvider()->isResponseValid($this->privateKey, $response, $_SERVER['REMOTE_ADDR'])) {
+            $this->error(self::ERR_INVALID);
+            return false;
+        }
+
+        return true;
     }
 }
