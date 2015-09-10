@@ -5,6 +5,8 @@ class CurlProvider implements ProviderInterface
 {
     const URL = 'https://www.google.com/recaptcha/api/siteverify';
 
+    protected $url;
+
     public function __construct($url = self::URL)
     {
         $this->url = $url;
