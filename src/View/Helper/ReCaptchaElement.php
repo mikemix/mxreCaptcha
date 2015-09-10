@@ -10,7 +10,9 @@ class ReCaptchaElement extends AbstractHelper
     {
         return $this->getView()->render('mxreCaptcha/element', [
             'element' => $element,
-            'options' => json_encode(array_merge(['sitekey' => $element->getSiteKey()], $element->getOptions())),
+            'options' => json_encode(array_merge(
+                ['sitekey' => $element->getSiteKey()], (array)$element->getOption('widget_options')
+            )),
         ]);
     }
 }
