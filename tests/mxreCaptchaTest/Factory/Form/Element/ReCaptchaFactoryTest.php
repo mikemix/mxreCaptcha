@@ -2,6 +2,9 @@
 namespace mxreCaptchaTest\Factory\Form\Element;
 
 use mxreCaptcha\Factory\Form\Element\ReCaptchaFactory;
+use mxreCaptcha\Form\Element\ReCaptcha;
+use mxreCaptcha\View\Helper\ReCaptchaElement;
+use mxreCaptchaTest\MockObject\FormElement;
 use Zend\ServiceManager\AbstractPluginManager;
 
 class ReCaptchaFactoryTest extends \PHPUnit_Framework_TestCase
@@ -18,7 +21,7 @@ class ReCaptchaFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $serviceLocator = $this->getServiceLocator();
 
-        $serviceLocator->expects($this->once())
+        $serviceLocator->expects($this->at(1))
             ->method('get')->with($this->equalTo('config'))
             ->will($this->returnValue(['mxreCaptcha' => ['sitekey' => '']]));
 
@@ -26,13 +29,20 @@ class ReCaptchaFactoryTest extends \PHPUnit_Framework_TestCase
         $this->factory->createService($serviceLocator);
     }
 
-    public function testCreateServiceWithConfiguredPublicKey()
+    public function testCreateServiceAndConfigureRendererWithConfiguredPublicKey()
     {
         $serviceLocator = $this->getServiceLocator();
 
-        $serviceLocator->expects($this->once())
+        $serviceLocator->expects($this->at(1))
             ->method('get')->with($this->equalTo('config'))
             ->will($this->returnValue(['mxreCaptcha' => ['sitekey' => 'ABC']]));
+
+        $helper = $this->getMock(FormElement::class, ['addClass']);
+        $helper->expects($this->once())
+            ->method('addClass')->with($this->equalTo(ReCaptcha::class), $this->equalTo(ReCaptchaElement::class));
+
+        $serviceLocator->expects($this->at(2))->method('get')->will($this->returnSelf());
+        $serviceLocator->expects($this->at(3))->method('get')->will($this->returnValue($helper));
 
         $service = $this->factory->createService($serviceLocator);
         

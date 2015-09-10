@@ -75,13 +75,8 @@ $form = $this->form->prepare();
 
 <?= $this->form()->openTag($form) ?>
 
-<!-- render the captcha using the reCaptchaElement() view helper! important as is -->
-<?= $this->reCaptchaElement($form->get('recaptcha')) ?>
-
-<!-- additional element errors -->
-<?= $this->formElementErrors($form->get('recaptcha')) ?>
-
-<?= $this->formElement('submit');
+<?= $this->formElement('recaptcha') ?>
+<?= $this->formElement('submit') ?>
 
 <?= $this->form()->closeTag() ?>
 ```
