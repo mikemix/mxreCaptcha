@@ -10,7 +10,7 @@ class ReCaptchaElementTest extends \PHPUnit_Framework_TestCase
     public function testInvoke()
     {
         $element = $this->getMockBuilder(ReCaptcha::class)
-            ->setMethods(['getSiteKey', 'getOptions'])
+            ->setMethods(['getSiteKey', 'getOption'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -19,7 +19,8 @@ class ReCaptchaElementTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('ABC'));
 
         $element->expects($this->once())
-            ->method('getOptions')
+            ->method('getOption')
+            ->with($this->equalTo('widget_options'))
             ->will($this->returnValue([
                 'customOption' => 'value'
             ]));
