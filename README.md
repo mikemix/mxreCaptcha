@@ -99,10 +99,7 @@ $form = $this->form->prepare();
 ?>
 
 <?= $this->form()->openTag($form) ?>
-
-<?= $this->formElement('recaptcha') ?>
-<?= $this->formElement('submit') ?>
-
+<?= $this->formCollection($form) ?>
 <?= $this->form()->closeTag() ?>
 ```
 
