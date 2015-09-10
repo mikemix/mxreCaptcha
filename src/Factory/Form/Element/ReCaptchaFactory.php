@@ -20,7 +20,7 @@ class ReCaptchaFactory implements FactoryInterface
 
         $config = $serviceLocator->get('config');
 
-        if (!isset($config['mxreCaptcha']['sitekey'])) {
+        if (empty($config['mxreCaptcha']['sitekey'])) {
             throw new \InvalidArgumentException('mxreCaptcha.sitekey is missing');
         }
 
