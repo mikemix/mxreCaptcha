@@ -27,8 +27,8 @@ class ReCaptcha extends AbstractValidator
     ];
 
     /**
-     * @param array|null|\Traversable $privateKey
-     * @param array $postValues
+     * @param string $privateKey
+     * @param array  $postValues
      */
     public function __construct($privateKey, array $postValues)
     {
@@ -71,7 +71,7 @@ class ReCaptcha extends AbstractValidator
      */
     public function isValid($value)
     {
-        if (!isset($this->postValues[self::FIELD_NAME]) || empty($response = $this->postValues[self::FIELD_NAME])) {
+        if (empty($response = $this->postValues[self::FIELD_NAME])) {
             $this->error(self::ERR_EMPTY);
             return false;
         }
