@@ -27,17 +27,24 @@ class AddForm extends Form
         $this->add([
             'name' => 'recaptcha',   // or any name of your choice
             'type' => 'mxreCaptcha', // this is important, use our reCaptcha component
+            'options' => [
+                'label' => 'Prove you are human',
+            ],
         ]);
+        
+        // or
         
         // This element behaves as any other element.
         // Aside from that, you can pass custom grecaptcha.render parameters
-        // available at the docs https://developers.google.com/recaptcha/docs/display#render_param
+        // available at the docs
+        // https://developers.google.com/recaptcha/docs/display#render_param
         // by setting widget_options key in the options, for example:
         
         $this->add([
             'name' => 'recaptcha',
             'type' => 'mxreCaptcha',
             'options' => [
+                'label' => 'Prove you are human',
                 'widget_options' => [
                     'theme' => 'dark',
                 ],
@@ -64,7 +71,8 @@ class FormController extends AbstractActionController
 {
     public function indexAction()
     {
-        $form = $this->getServiceLocator()->get('FormElementManager')->get(AddForm::class);
+        $form = $this->getServiceLocator()->get('FormElementManager')
+            ->get(AddForm::class);
         
         if ($this->request->isPost()) {
             $form->setData($this->request->getPost());
@@ -91,10 +99,7 @@ $form = $this->form->prepare();
 ?>
 
 <?= $this->form()->openTag($form) ?>
-
-<?= $this->formElement('recaptcha') ?>
-<?= $this->formElement('submit') ?>
-
+<?= $this->formCollection($form) ?>
 <?= $this->form()->closeTag() ?>
 ```
 
@@ -109,7 +114,8 @@ error messages and compile this file to `*.mo`. Put those two files inside the `
 
 This modules comes up with unit tests. phpUnit is required to run the suite:
 
-1. Navigate to the library directory
-2. Download composer `php -r "readfile('https://getcomposer.org/installer');" | php`
-3. Install dependencies `php composer.phar update`
-4. Run suite `phpunit`
+1. Clone this repository `git clone https://github.com/mikemix/mxreCaptcha.git`
+2. Navigate to it `cd mxreCaptcha`
+3. Download composer `php -r "readfile('https://getcomposer.org/installer');" | php`
+4. Install dependencies `php composer.phar update`
+5. Run suite `phpunit`
