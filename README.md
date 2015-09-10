@@ -27,7 +27,12 @@ class AddForm extends Form
         $this->add([
             'name' => 'recaptcha',   // or any name of your choice
             'type' => 'mxreCaptcha', // this is important, use our reCaptcha component
+            'options' => [
+                'label' => 'Prove you are human',
+            ],
         ]);
+        
+        // or
         
         // This element behaves as any other element.
         // Aside from that, you can pass custom grecaptcha.render parameters
@@ -38,6 +43,7 @@ class AddForm extends Form
             'name' => 'recaptcha',
             'type' => 'mxreCaptcha',
             'options' => [
+                'label' => 'Prove you are human',
                 'widget_options' => [
                     'theme' => 'dark',
                 ],
