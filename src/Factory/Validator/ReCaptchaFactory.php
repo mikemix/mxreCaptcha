@@ -22,7 +22,7 @@ class ReCaptchaFactory implements FactoryInterface
 
         $config = $serviceLocator->get('config');
 
-        if (!isset($config['mxreCaptcha']['secretkey'])) {
+        if (empty($config['mxreCaptcha']['secretkey'])) {
             throw new \InvalidArgumentException('mxreCaptcha.secretkey is missing');
         }
 
