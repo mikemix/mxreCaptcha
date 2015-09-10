@@ -29,6 +29,21 @@ class AddForm extends Form
             'type' => 'mxreCaptcha', // this is important, use our reCaptcha component
         ]);
         
+        // This element behaves as any other element.
+        // Aside from that, you can pass custom grecaptcha.render parameters
+        // available at the docs https://developers.google.com/recaptcha/docs/display#render_param
+        // by setting widget_options key in the options, for example:
+        
+        $this->add([
+            'name' => 'recaptcha',
+            'type' => 'mxreCaptcha',
+            'options' => [
+                'widget_options' => [
+                    'theme' => 'dark',
+                ],
+            ],
+        ]);
+        
         $this->add([
             'name' => 'submit',
             'type' => 'submit',
