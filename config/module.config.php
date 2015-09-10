@@ -4,6 +4,15 @@
             'mxreCaptcha' => mxreCaptcha\Factory\Form\Element\ReCaptchaFactory::class,
         ],
     ],
+    'translator' => [
+        'translation_file_patterns' => [
+            [
+                'type'     => 'gettext',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern'  => '%s.mo'
+            ],
+        ],
+    ],
     'validators' => [
         'factories' => [
             mxreCaptcha\Validator\ReCaptcha::class => mxreCaptcha\Factory\Validator\ReCaptchaFactory::class,

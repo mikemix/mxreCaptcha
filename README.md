@@ -98,6 +98,13 @@ $form = $this->form->prepare();
 <?= $this->form()->closeTag() ?>
 ```
 
+## Localization
+
+By default, Polish translation for localized error messages is available out of the box.
+To create custom translation for your application, simply copy the `pl.po` file from the `language` directory
+and name it accordingly to match your translator `locale` setting (for example `fr_ca.po`). Finally translate
+error messages and compile this file to `*.mo`. Put those two files inside the `language` directory.
+
 ## Unit tests
 
 This modules comes up with unit tests. phpUnit is required to run the suite:
