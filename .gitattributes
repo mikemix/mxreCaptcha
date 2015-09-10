@@ -1,0 +1,17 @@
+*.php text eol=lf
+*.json text eol=lf
+*.phtml text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.sh text eol=lf
+*.gitignore text eol=lf
+*.gitattributes text eol=lf
+*.bowerrc text eol=lf
+*.dist text eol=lf
+*.pem text eol=lf
+
+/tests           export-ignore
+/module/*/tests  export-ignore
+phpunit.xml.dist export-ignore
+.scrutinizer.yml export-ignore
+.travis.yml      export-ignore
