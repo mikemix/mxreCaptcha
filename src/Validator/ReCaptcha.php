@@ -71,12 +71,16 @@ class ReCaptcha extends AbstractValidator
      */
     public function isValid($value)
     {
-        if (empty($response = $this->postValues[self::FIELD_NAME])) {
+        if (empty($this->postValues[self::FIELD_NAME])) {
             $this->error(self::ERR_EMPTY);
             return false;
         }
 
-        if (!$this->getProvider()->isResponseValid($this->privateKey, $response, $_SERVER['REMOTE_ADDR'])) {
+        if (!$this->getProvider()->isResponseValid(
+            $this->privateKey,
+            $this->postValues[self::FIELD_NAME],
+            $_SERVER['REMOTE_ADDR'])
+        ) {
             $this->error(self::ERR_INVALID);
             return false;
         }
