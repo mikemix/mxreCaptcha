@@ -110,6 +110,8 @@ To create custom translation for your application, simply copy the `pl.po` file 
 and name it accordingly to match your translator `locale` setting (for example `fr_ca.po`). Finally translate
 error messages and compile this file to `*.mo`. Put those two files inside the `language` directory.
 
+If you are willing to share your translation, please make a pull request.
+
 ## Unit tests
 
 This modules comes up with unit tests. phpUnit is required to run the suite:
