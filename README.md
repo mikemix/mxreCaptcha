@@ -71,7 +71,8 @@ class FormController extends AbstractActionController
 {
     public function indexAction()
     {
-        $form = $this->getServiceLocator()->get('FormElementManager')->get(AddForm::class);
+        $form = $this->getServiceLocator()->get('FormElementManager')
+            ->get(AddForm::class);
         
         if ($this->request->isPost()) {
             $form->setData($this->request->getPost());
@@ -109,7 +110,8 @@ $form = $this->form->prepare();
 
 This modules comes up with unit tests. phpUnit is required to run the suite:
 
-1. Navigate to the library directory
-2. Download composer `php -r "readfile('https://getcomposer.org/installer');" | php`
-3. Install dependencies `php composer.phar update`
-4. Run suite `phpunit`
+1. Clone this repository `git clone https://github.com/mikemix/mxreCaptcha.git`
+2. Navigate to it `cd mxreCaptcha`
+3. Download composer `php -r "readfile('https://getcomposer.org/installer');" | php`
+4. Install dependencies `php composer.phar update`
+5. Run suite `phpunit`
