@@ -1,5 +1,7 @@
 # mxreCaptcha
 
+[![Build Status](https://scrutinizer-ci.com/g/mikemix/mxreCaptcha/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mikemix/mxreCaptcha/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mikemix/mxreCaptcha/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mikemix/mxreCaptcha/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/mikemix/mxreCaptcha/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mikemix/mxreCaptcha/?branch=master)
+
 Easy ZF2 form integration with reCaptcha v2.0
 
 ## Installation
