@@ -17,8 +17,8 @@ class ReCaptchaTest extends \PHPUnit_Framework_TestCase
     {
         $reference = $this->element->setSiteKey('ABC');
 
-        $this->assertSame($this->element->getSiteKey(), 'ABC');
-        $this->assertSame($this->element, $reference);
+        $this->assertSame('ABC', $this->element->getSiteKey());
+        $this->assertSame($reference, $this->element);
     }
 
     public function testGetSpecification()
